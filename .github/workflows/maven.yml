@@ -34,7 +34,7 @@ jobs:
         STATUS="unknown"
         for i in $(seq 1 45); do
           RESPONSE=$(curl -s "$API_URL")
-          STATUS=$(echo "$RESPONSE" | grep -o '"status":"[^"]*"' | head -1 | cut -d'"' -f4)
+          STATUS=$(echo "$RESPONSE" | grep -o '"status"[[:space:]]*:[[:space:]]*"[^"]*"' | head -1 | grep -o '"[^"]*"$' | tr -d '"')
           echo "Intento $i/45 -> status: ${STATUS:-sin respuesta} | $RESPONSE"
 
           if [ "$STATUS" == "ok" ]; then
