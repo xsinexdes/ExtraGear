@@ -8,15 +8,15 @@
     <version>1.0.0</version>
 
     <properties>
-        <maven.compiler.source>1.8</maven.compiler.source>
-        <maven.compiler.target>1.8</maven.compiler.target>
+        <maven.compiler.source>21</maven.compiler.source>
+        <maven.compiler.target>21</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
     <repositories>
         <repository>
             <id>paper-repo</id>
-            <url>https://repo.destroystokyo.com/repository/maven-public/</url>
+            <url>https://repo.papermc.io/repository/maven-public/</url>
         </repository>
         <repository>
             <id>spigot-repo</id>
@@ -58,7 +58,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-shade-plugin</artifactId>
-                <version>3.2.4</version>
+                <version>3.6.0</version>
 
                 <configuration>
 
@@ -94,21 +94,23 @@
     </build>
 
     <dependencies>
+        <!-- Paper API, 1.21.1 -->
         <dependency>
-            <groupId>org.spigotmc</groupId>
-            <artifactId>spigot-api</artifactId>
-            <version>1.16.5-R0.1-SNAPSHOT</version>
+            <groupId>io.papermc.paper</groupId>
+            <artifactId>paper-api</artifactId>
+            <version>1.21.1-R0.1-SNAPSHOT</version>
             <scope>provided</scope>
         </dependency>
 
+        <!-- Tu fork de Slimefun4 (xsinexdes/Slimefun4, rama "experimental"), vía JitPack -->
         <dependency>
-            <groupId>com.github.thebusybiscuit</groupId>
+            <groupId>com.github.xsinexdes</groupId>
             <artifactId>Slimefun4</artifactId>
-            <version>RC-27</version>
+            <version>experimental-SNAPSHOT</version>
             <scope>provided</scope>
             <exclusions>
                 <exclusion>
-                    <groupId>io.github.baked-libs</groupId>
+                    <groupId>com.github.Slimefun.dough</groupId>
                     <artifactId>dough-api</artifactId>
                 </exclusion>
                 <exclusion>
@@ -121,8 +123,9 @@
         <dependency>
             <groupId>org.bstats</groupId>
             <artifactId>bstats-bukkit</artifactId>
-            <version>1.7</version>
+            <version>3.0.2</version>
             <scope>compile</scope>
         </dependency>
     </dependencies>
 </project>
+
